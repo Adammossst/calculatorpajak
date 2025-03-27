@@ -125,6 +125,7 @@ fun KalkulatorPajakScreen() {
     var totalSetelahPajak by remember { mutableDoubleStateOf(0.0) }
     var showResult by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
+    var jumlahTagihanError by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val daftarPajak = listOf("5%", "10%","12%", "15%", "20%", "25%", "50%")
 
@@ -137,6 +138,8 @@ fun KalkulatorPajakScreen() {
     ) {
         OutlinedTextField(
             value = jumlahTagihan,
+            supportingText = { ErrorHint(jumlahTagihanError) },
+            isError = jumlahTagihanError,
             onValueChange = { jumlahTagihan = it },
             label = { Text(stringResource(R.string.input_bill)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
@@ -158,6 +161,7 @@ fun KalkulatorPajakScreen() {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
 
                 },
+
                 modifier = Modifier
                     .fillMaxWidth()
                     .menuAnchor()
@@ -183,14 +187,22 @@ fun KalkulatorPajakScreen() {
 
         Button(
             onClick = {
-                val tagihan = jumlahTagihan.toDoubleOrNull() ?: 0.0
-                val pajak = persentasePajak.replace("%", "").toDoubleOrNull() ?: 0.0
-                totalSetelahPajak = tagihan + (tagihan * (pajak / 100))
-                showResult = true
+                jumlahTagihanError = jumlahTagihan.trim().isEmpty() ||
+                        jumlahTagihan.toDoubleOrNull() == null ||
+                        jumlahTagihan.toDouble() <= 0
+
+                if (!jumlahTagihanError) {
+                    val tagihan = jumlahTagihan.toDoubleOrNull() ?: 0.0
+                    val pajak = persentasePajak.replace("%", "").toDoubleOrNull() ?: 0.0
+                    totalSetelahPajak = tagihan + (tagihan * (pajak / 100))
+                    showResult = true
+                }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 16.dp)
         ) {
-            Text(stringResource(R.string.calculate))
+            Text(text = stringResource(R.string.calculate))
         }
 
 
@@ -227,5 +239,14 @@ private fun shareData(context:Context, message: String) {
     }
     if (shareIntent.resolveActivity(context.packageManager) !=null) {
         context.startActivity(shareIntent)
+    }
+}
+@Composable
+fun ErrorHint(isError: Boolean) {
+    if (isError){
+        Text(
+            text = stringResource(R.string.input_invalid),
+            color = MaterialTheme.colorScheme.error
+        )
     }
 }

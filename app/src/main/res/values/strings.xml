@@ -9,4 +9,5 @@
     <string name="back">Back </string>
     <string name="share">Share </string>
     <string name="share_template">Bill Amount: Rp.%1$s Percent: %2$s Total to Pay: Rp.%3$.2f</string>
+    <string name="input_invalid">Field Cannot be empty</string>
 </resources>
