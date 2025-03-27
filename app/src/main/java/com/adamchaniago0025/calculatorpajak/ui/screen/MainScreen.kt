@@ -1,5 +1,7 @@
 package com.adamchaniago0025.calculatorpajak.ui.screen
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +37,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -122,7 +125,8 @@ fun KalkulatorPajakScreen() {
     var totalSetelahPajak by remember { mutableDoubleStateOf(0.0) }
     var showResult by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
-    val daftarPajak = listOf("5%", "10%", "15%", "20%", "25%", "50%")
+    val context = LocalContext.current
+    val daftarPajak = listOf("5%", "10%","12%", "15%", "20%", "25%", "50%")
 
     Column(
         modifier = Modifier
@@ -189,6 +193,7 @@ fun KalkulatorPajakScreen() {
             Text(stringResource(R.string.calculate))
         }
 
+
         Spacer(modifier = Modifier.height(24.dp))
 
         if (showResult) {
@@ -198,5 +203,29 @@ fun KalkulatorPajakScreen() {
                 color = MaterialTheme.colorScheme.secondary
             )
         }
+        Button(
+            onClick = {shareData(
+                context = context,
+                message = context.getString(
+                    R.string.share_template, jumlahTagihan, persentasePajak, totalSetelahPajak
+                )
+            )},
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            Text(
+                text = stringResource(R.string.share)
+
+            )
+        }
+    }
+}
+
+private fun shareData(context:Context, message: String) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, message)
+    }
+    if (shareIntent.resolveActivity(context.packageManager) !=null) {
+        context.startActivity(shareIntent)
     }
 }

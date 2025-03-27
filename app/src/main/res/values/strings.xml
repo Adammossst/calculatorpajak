@@ -7,4 +7,6 @@
     <string name="about_app">About App </string>
     <string name="copyright">This application is designed to simplify the process of calculating the total bill, including tax. With this tool, you can easily determine the exact amount you owe, ensure the accuracy of your expenses, manage business invoices, or handle personal finances, this app helps you avoid calculation errors and provides a smooth experience in estimating bills. © 2025 Adam Maulana Chaniago. All rights reserved.</string>
     <string name="back">Back </string>
+    <string name="share">Share </string>
+    <string name="share_template">Bill Amount: Rp.%1$s Percent: %2$s Total to Pay: Rp.%3$.2f</string>
 </resources>
