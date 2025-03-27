@@ -63,10 +63,10 @@ fun MainScreen(){
             )
         },
     ) { innerPadding ->
-        Box(modifier = Modifier.fillMaxSize()
+        Box(modifier = Modifier
+            .fillMaxSize()
             .padding(innerPadding)) {
-            Greeting("Assasment 1")
-        }
+            Greeting("Android")}
     }
 }
 
