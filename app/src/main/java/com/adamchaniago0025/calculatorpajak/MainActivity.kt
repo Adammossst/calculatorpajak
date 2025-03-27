@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.adamchaniago0025.calculatorpajak.ui.screen.MainScreen
+import com.adamchaniago0025.calculatorpajak.navigation.SetupNavGraph
 import com.adamchaniago0025.calculatorpajak.ui.theme.CalculatorpajakTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CalculatorpajakTheme {
-                MainScreen()
+                SetupNavGraph()
             }
         }
     }

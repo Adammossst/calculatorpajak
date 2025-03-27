@@ -41,13 +41,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.adamchaniago0025.calculatorpajak.R
+import com.adamchaniago0025.calculatorpajak.navigation.Screen
 import com.adamchaniago0025.calculatorpajak.ui.theme.CalculatorpajakTheme
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(){
+fun MainScreen(navController: NavHostController){
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
 
     Scaffold(
@@ -67,7 +69,7 @@ fun MainScreen(){
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = { }) {
                         Icon(
                             imageVector = Icons.Filled.Home,
                             contentDescription = "Localized description"
@@ -75,7 +77,9 @@ fun MainScreen(){
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = {
+                        navController.navigate(Screen.About.route)
+                    }) {
                         Icon(
                             imageVector = Icons.Filled.Info,
                             contentDescription = "Localized description"
