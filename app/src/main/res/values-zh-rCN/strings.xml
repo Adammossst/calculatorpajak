@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">税收计算器</string>
+    <string name="input_bill">输入账单金额</string>
+    <string name="select_tax">选择税率</string>
+    <string name="calculate">计算</string>
+    <string name="result">税后总额：</string>
+    <string name="about_app">关于应用程序</string>
+    <string name="back">后退</string>
+    <string name="share">分享</string>
+    <string name="copyright">该应用程序旨在简化计算总账单（包括税费）的过程。使用此工具，您可以轻松确定您所欠的确切金额，确保费用的准确性，管理商业发票或处理个人财务，此应用程序可以帮助您避免计算错误并提供估算账单的流畅体验。 © 2025 亚当·毛拉纳·查尼亚戈。保留所有权利。</string>
+    <string name="input_invalid">字段不能为空</string>
+</resources>

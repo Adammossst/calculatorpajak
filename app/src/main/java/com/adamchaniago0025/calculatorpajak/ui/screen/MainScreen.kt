@@ -2,6 +2,7 @@ package com.adamchaniago0025.calculatorpajak.ui.screen
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -136,6 +139,13 @@ fun KalkulatorPajakScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.tax),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            alpha = 0.8f,
+            modifier = Modifier
+        )
         OutlinedTextField(
             value = jumlahTagihan,
             supportingText = { ErrorHint(jumlahTagihanError) },
@@ -143,7 +153,7 @@ fun KalkulatorPajakScreen() {
             onValueChange = { jumlahTagihan = it },
             label = { Text(stringResource(R.string.input_bill)) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth().padding(top = 80.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))

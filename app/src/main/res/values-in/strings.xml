@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulator Pajak</string>
+    <string name="input_bill">Masukkan Jumlah Tagihan</string>
+    <string name="select_tax">Pilih Persentase Pajak</string>
+    <string name="calculate">Hitung</string>
+    <string name="result">Total Setelah Pajak</string>
+    <string name="about_app">Tentang Aplikasi</string>
+    <string name="back">Kembali</string>
+    <string name="share">Bagikan</string>
+    <string name="copyright">Aplikasi ini dirancang untuk mempermudah proses penghitungan total tagihan, termasuk pajak. Dengan alat ini, Anda dapat dengan mudah menentukan jumlah pasti utang Anda, memastikan keakuratan pengeluaran Anda, mengelola faktur bisnis, atau menangani keuangan pribadi, aplikasi ini membantu Anda menghindari kesalahan perhitungan dan memberikan pengalaman yang lancar dalam memperkirakan tagihan. © 2025 Adam Maulana Chaniago. Semua hak dilindungi undang-undang.</string>
+    <string name="input_invalid">Bidang Tidak boleh kosong</string>
+</resources>
